@@ -12,7 +12,7 @@
 <form action="/basket" method="post">
     <div class="form-group">
         <label>Crust</label>
-        <select name="crust">
+        <select id="crust" name="crust" onchange="updatePrice()">
             <option value="20">big €20</option>
             <option value="15">medium €15</option>
             <option value="10">small €10</option>
@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
         <label>Sauce</label>
-        <select name="sauce">
+        <select id="sauce" name="sauce" onchange="updatePrice()">
             <option value="10">tomatoe €10</option>
             <option value="10">ranch €10</option>
             <option value="10">cheese €10</option>
@@ -28,7 +28,7 @@
     </div>
     <div class="form-group">
         <label>Cheese</label>
-        <select name="cheese">
+        <select id="cheese" name="cheese" onchange="updatePrice()">
             <option value="5">Extra €5</option>
             <option value="3">medium €3</option>
             <option value="1">none €1</option>
@@ -36,7 +36,8 @@
     </div>
     <div class="form-group">
         <label>Ingredient 1</label>
-        <select name="Ingredient1">
+        <select id="Ingredient1" name="Ingredient1" onchange="updatePrice()">
+            <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
             <option value="5">Pepperoni €5</option>
@@ -45,12 +46,12 @@
             <option value="5">Cheese €5</option>
             <option value="5">Mushroom €5</option>
             <option value="5">Carrot €5</option>
-            <option value="0">None €0</option>
         </select>
     </div>
     <div class="form-group">
         <label>Ingredient 2</label>
-        <select name="Ingredient2">
+        <select id="Ingredient2" name="Ingredient2" onchange="updatePrice()">
+            <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
             <option value="5">Pepperoni €5</option>
@@ -59,12 +60,12 @@
             <option value="5">Cheese €5</option>
             <option value="5">Mushroom €5</option>
             <option value="5">Carrot €5</option>
-            <option value="0">None €0</option>
         </select>
     </div>
     <div class="form-group">
         <label>Ingredient 3</label>
-        <select name="Ingredient3">
+        <select id="Ingredient3" name="Ingredient3" onchange="updatePrice()">
+            <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
             <option value="5">Pepperoni €5</option>
@@ -73,12 +74,12 @@
             <option value="5">Cheese €5</option>
             <option value="5">Mushroom €5</option>
             <option value="5">Carrot €5</option>
-            <option value="0">None €0</option>
         </select>
     </div>
     <div class="form-group">
         <label>Ingredient 4</label>
-        <select name="Ingredient4">
+        <select id="Ingredient4" name="Ingredient4" onchange="updatePrice()">
+            <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
             <option value="5">Pepperoni €5</option>
@@ -87,12 +88,12 @@
             <option value="5">Cheese €5</option>
             <option value="5">Mushroom €5</option>
             <option value="5">Carrot €5</option>
-            <option value="0">None €0</option>
         </select>
     </div>
     <div class="form-group">
         <label>Ingredient 5</label>
-        <select name="Ingredient5">
+        <select id="Ingredient5" name="Ingredient5" onchange="updatePrice()">
+            <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
             <option value="5">Pepperoni €5</option>
@@ -101,12 +102,31 @@
             <option value="5">Cheese €5</option>
             <option value="5">Mushroom €5</option>
             <option value="5">Carrot €5</option>
-            <option value="0">None €0</option>
         </select>
     </div>
 
+    <h3 id="totalPrice"></h3>
+
     <button type="submit" class="btn btn-warning btn-lg">Add to Cart</button>
 </form>
+
+
+<script>
+    function updatePrice() {
+        let totalPrice =
+            parseInt(document.getElementById("crust").value) +
+            parseInt(document.getElementById("sauce").value) +
+            parseInt(document.getElementById("cheese").value) +
+            parseInt(document.getElementById("Ingredient1").value) +
+            parseInt(document.getElementById("Ingredient2").value) +
+            parseInt(document.getElementById("Ingredient3").value) +
+            parseInt(document.getElementById("Ingredient4").value) +
+            parseInt(document.getElementById("Ingredient5").value);
+
+        document.getElementById("totalPrice").innerHTML = "Your total is " + totalPrice;
+    }
+</script>
+
 <% include partials/footer %>
 </body>
 <% include partials/script %>
