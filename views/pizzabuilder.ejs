@@ -9,7 +9,104 @@
 <div class="container-fluid bg-3 text-center">
     <h3><%= page %></h3><br>
 </div>
+<form action="/basket" method="post">
+    <div class="form-group">
+        <label>Crust</label>
+        <select name="crust">
+            <option value="20">big €20</option>
+            <option value="15">medium €15</option>
+            <option value="10">small €10</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Sauce</label>
+        <select name="sauce">
+            <option value="10">tomatoe €10</option>
+            <option value="10">ranch €10</option>
+            <option value="10">cheese €10</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Cheese</label>
+        <select name="cheese">
+            <option value="5">Extra €5</option>
+            <option value="3">medium €3</option>
+            <option value="1">none €1</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ingredient 1</label>
+        <select name="Ingredient1">
+            <option value="5">Bacon €5</option>
+            <option value="5">Ham €5</option>
+            <option value="5">Pepperoni €5</option>
+            <option value="5">Onion €5</option>
+            <option value="5">Garlic €5</option>
+            <option value="5">Cheese €5</option>
+            <option value="5">Mushroom €5</option>
+            <option value="5">Carrot €5</option>
+            <option value="0">None €0</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ingredient 2</label>
+        <select name="Ingredient2">
+            <option value="5">Bacon €5</option>
+            <option value="5">Ham €5</option>
+            <option value="5">Pepperoni €5</option>
+            <option value="5">Onion €5</option>
+            <option value="5">Garlic €5</option>
+            <option value="5">Cheese €5</option>
+            <option value="5">Mushroom €5</option>
+            <option value="5">Carrot €5</option>
+            <option value="0">None €0</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ingredient 3</label>
+        <select name="Ingredient3">
+            <option value="5">Bacon €5</option>
+            <option value="5">Ham €5</option>
+            <option value="5">Pepperoni €5</option>
+            <option value="5">Onion €5</option>
+            <option value="5">Garlic €5</option>
+            <option value="5">Cheese €5</option>
+            <option value="5">Mushroom €5</option>
+            <option value="5">Carrot €5</option>
+            <option value="0">None €0</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ingredient 4</label>
+        <select name="Ingredient4">
+            <option value="5">Bacon €5</option>
+            <option value="5">Ham €5</option>
+            <option value="5">Pepperoni €5</option>
+            <option value="5">Onion €5</option>
+            <option value="5">Garlic €5</option>
+            <option value="5">Cheese €5</option>
+            <option value="5">Mushroom €5</option>
+            <option value="5">Carrot €5</option>
+            <option value="0">None €0</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ingredient 5</label>
+        <select name="Ingredient5">
+            <option value="5">Bacon €5</option>
+            <option value="5">Ham €5</option>
+            <option value="5">Pepperoni €5</option>
+            <option value="5">Onion €5</option>
+            <option value="5">Garlic €5</option>
+            <option value="5">Cheese €5</option>
+            <option value="5">Mushroom €5</option>
+            <option value="5">Carrot €5</option>
+            <option value="0">None €0</option>
+        </select>
+    </div>
 
+    <button type="submit" class="btn btn-warning btn-lg">Add to Cart</button>
+</form>
 <% include partials/footer %>
 </body>
 <% include partials/script %>
