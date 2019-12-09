@@ -10,6 +10,30 @@
     <h3><%= page %></h3><br>
 </div>
 
+<table>
+    <tr>
+        <th>
+            Items
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    <tr>
+        <td>
+            Custom Pizza
+        </td>
+        <td>
+            <%
+            let total = 0;
+            pizza.forEach(function (price) {
+                total += parseInt(price);
+            }) %>
+            €<%= total %>
+        </td>
+    </tr>
+</table>
+
 <% include partials/footer %>
 </body>
 <% include partials/script %>

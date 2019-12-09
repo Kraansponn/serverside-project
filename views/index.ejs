@@ -1,20 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include partials/head %>
+    <% include partials/head %>
 </head>
 <body>
 <% include partials/menu %>
 
 <div class="container-fluid bg-3 text-center">
-  <h3><%= page %></h3><br>
-  <p>hello customerasddsfafdasafdsfasdfdasfdasfdasfdasfasdfasdfdsfdsasdfwea</p>
+    <h3><%= page %></h3><br>
+    <p>hello customerasddsfafdasafdsfasdfdasfdasfdasfdasfasdfasdfdsfdsasdfwea</p>
 </div>
 
-<% var hi = [1,2,3,4,5,6] %>
-<% hi.forEach(function(item) { %>
-  <li><%= item %></li>
-<% }); %>
+<% var pepperoniPizza = ["https://media-cdn.tripadvisor.com/media/photo-s/0e/bc/93/c6/four-star-pizza.jpg", "large", "marinara", "Extra Cheese", "pepperoni", "€22.50"] %>
+<% var vegiterianPizza = ["https://media-cdn.tripadvisor.com/media/photo-s/12/d5/c4/e1/goats-cheese-caramelised.jpg", "small", "marinara", "no Cheese", "carrot", "tomato", "onion", "mushroom", "€45.50"] %>
+<% var classicPizza = ["https://i.dailymail.co.uk/i/pix/2018/02/07/15/48D3379500000578-5362661-image-a-17_1518017406118.jpg", "medium", "ranch", "normal Cheese", "ham", "mushroom", "€22.50"] %>
+<% var jumboPizza = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7BV-u6MVZuiKX_ptDxaNQDIPGrpvRSTYD47zDibtPljNepVPT&s", "large", "marinara", "Extra Cheese", "pepperoni", "ham", "onion", "€22.50"] %>
+<% var chickenNuggets = ["https://cdn.onebauer.media/one/media/5978/6e57/00b3/dc00/0c10/865f/chickennuggets-istock.jpg?quality=80&width=960&ratio=16-9&resizeStyle=aspectfill&format=jpg", "€5.50"] %>
+<% var burntChurro = ["https://www.halfbakedharvest.com/wp-content/uploads/2018/04/Easy-Cinnamon-Churros-with-Coffee-Chocolate-Sauce-7-700x1050.jpg", "€5.50"] %>
+<% var pepsiCola = ["https://thumbs.dreamstime.com/z/odessa-ukraine-july-tin-can-pepsi-cola-genuine-black-background-135522817.jpg", "€5.50"] %>
+<% var cocaCola = ["https://media.istockphoto.com/photos/cocacola-classic-in-a-glass-bottle-picture-id499208007", "€5.50"] %>
+<% var donought = ["https://www.christinascucina.com/wp-content/uploads/2014/01/IMG_4471-720x540.jpg", "€5.50"] %>
+<% var pizzas = [pepperoniPizza, vegiterianPizza, classicPizza, jumboPizza] %>
+<% var miscItems = [chickenNuggets, burntChurro, pepsiCola, cocaCola, donought] %>
+<table>
+
+    <tr>
+        <td>
+            <% pizzas.forEach(function(item) { %>
+                <li>
+                    <img src="<%= item[0] %>" width="100" height="100">
+                    <%= item[1] %>
+                    <%= item[2] %>
+                    <%= item[3] %>
+                    <%= item[4] %>
+                    <%= item[5] %>
+                    <%= item[6] %>
+                    <%= item[7] %>
+                    <%= item[8] %>
+                    <%= item[9] %>
+                </li>
+            <% }); %>
+        </td>
+        <td>
+            <% miscItems.forEach(function(item) { %>
+                <li>
+                    <img src="<%= item[0] %>" width="100" height="100">
+                    <%= item[1] %>
+                    <%= item[2] %>
+                    <%= item[3] %>
+                    <%= item[4] %>
+                    <%= item[5] %>
+                    <%= item[6] %>
+                    <%= item[7] %>
+                    <%= item[8] %>
+                    <%= item[9] %>
+                </li>
+            <% }); %>
+        </td>
+    </tr>
+
+</table>
 
 <% include partials/footer %>
 </body>
