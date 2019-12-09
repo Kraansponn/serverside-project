@@ -10,25 +10,31 @@
 
     <h3>Register</h3>
     <br>
+    <!-- Register FORM -->
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" class="form-control" name="username" required minlength="1" maxlength="10">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" required minlength="1" maxlength="10">
+        </div>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="personname" required minlength="1" maxlength="20">
+        </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" name="address" required minlength="1" maxlength="20">
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="number" class="form-control" name="phonenumber" required min="1000000000" max="9999999999">
+        </div>
 
-    <h4>Username</h4>
-    <input type="text" name="username" id="myText" placeholder="">
-    <br>
-    <h4>Password</h4>
-    <input type="text" name="password" id="myText" placeholder="">
-    <br>
-    <h4>Name</h4>
-    <input type="text" name="username" id="myText" placeholder="">
-    <br>
-    <h4>Phone Number</h4>
-    <input type="text" name="phonenumber" id="myText" placeholder="">
-    <br>
-    <h4>Address</h4>
-    <input type="text" name="address" id="myText" placeholder="">
-    <br>
-    <br>
-    <input type="button" onclick="" value="Register" />
-    <br>
+        <button type="submit" class="btn btn-warning btn-lg">Register</button>
+    </form>
 
 </div>
 <% include partials/footer %>
