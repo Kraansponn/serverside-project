@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sqlite3 = require('sqlite3');
 
-var isLoggedIn = false
+var loggedInUsername = "";
 
 // connects to database
 
@@ -34,10 +34,10 @@ router.post('/login', function (req, res, next) {
             return console.error(err.message);
         }
         if (row != null) {
-            isLoggedIn = true;
+            loggedInUsername = username;
             res.render('index', {page: 'index', menuId: 'index'});
         } else {
-            isLoggedIn = false;
+            loggedInUsername = "";
             res.render('login', {page: 'login', mymessage: 'Incorrect Username or Password', menuId: 'login'});
         }
     });
@@ -67,16 +67,16 @@ router.post('/register', function (req, res, next) {
 });
 
 router.get('/basket', function (req, res, next) {
-    if (isLoggedIn === true) {
-        res.render('basket', {page: 'basket', menuId: 'basket'});
+    if (loggedInUsername !== "") {
+        res.render('basket', {page: loggedInUsername + '\'s Basket', menuId: 'basket'});
     } else {
         res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
     }
 });
 
 router.get('/pizzabuilder', function (req, res, next) {
-    if (isLoggedIn === true) {
-        res.render('pizzabuilder', {page: 'pizzabuilder', menuId: 'pizzabuilder'});
+    if (loggedInUsername !== "") {
+        res.render('pizzabuilder', {page: loggedInUsername + '\'s Pizza Builder', menuId: 'pizzabuilder'});
     } else {
         res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
     }
