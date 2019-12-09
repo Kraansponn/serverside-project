@@ -43,3 +43,8 @@ footer {
     font-size: 12px;
     letter-spacing: 5px;
 }
+
+li {
+    position: center;
+    margin-left: 10em;
+}
