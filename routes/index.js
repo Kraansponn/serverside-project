@@ -74,6 +74,24 @@ router.get('/basket', function (req, res, next) {
     }
 });
 
+router.post('/basket', function (req, res, next) {
+    var crust = req.body.crust;
+    var sauce = req.body.sauce;
+    var cheese = req.body.cheese;
+    var ingredient1 = req.body.ingredient1;
+    var ingredient2 = req.body.ingredient2;
+    var ingredient3 = req.body.ingredient3;
+    var ingredient4 = req.body.ingredient4;
+    var ingredient5 = req.body.ingredient5;
+
+
+    res.render('basket', {
+        page: loggedInUsername + '\'s Basket',
+        menuId: 'basket',
+        pizza: [crust, sauce, cheese, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5]
+    });
+});
+
 router.get('/pizzabuilder', function (req, res, next) {
     if (loggedInUsername !== "") {
         res.render('pizzabuilder', {page: loggedInUsername + '\'s Pizza Builder', menuId: 'pizzabuilder'});

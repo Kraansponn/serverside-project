@@ -36,7 +36,7 @@
     </div>
     <div class="form-group">
         <label>Ingredient 1</label>
-        <select id="Ingredient1" name="Ingredient1" onchange="updatePrice()">
+        <select id="ingredient1" name="ingredient1" onchange="updatePrice()">
             <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
@@ -50,7 +50,7 @@
     </div>
     <div class="form-group">
         <label>Ingredient 2</label>
-        <select id="Ingredient2" name="Ingredient2" onchange="updatePrice()">
+        <select id="ingredient2" name="ingredient2" onchange="updatePrice()">
             <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
@@ -64,7 +64,7 @@
     </div>
     <div class="form-group">
         <label>Ingredient 3</label>
-        <select id="Ingredient3" name="Ingredient3" onchange="updatePrice()">
+        <select id="ingredient3" name="ingredient3" onchange="updatePrice()">
             <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
@@ -78,7 +78,7 @@
     </div>
     <div class="form-group">
         <label>Ingredient 4</label>
-        <select id="Ingredient4" name="Ingredient4" onchange="updatePrice()">
+        <select id="ingredient4" name="ingredient4" onchange="updatePrice()">
             <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
@@ -92,7 +92,7 @@
     </div>
     <div class="form-group">
         <label>Ingredient 5</label>
-        <select id="Ingredient5" name="Ingredient5" onchange="updatePrice()">
+        <select id="ingredient5" name="ingredient5" onchange="updatePrice()">
             <option value="0">None €0</option>
             <option value="5">Bacon €5</option>
             <option value="5">Ham €5</option>
@@ -117,11 +117,11 @@
             parseInt(document.getElementById("crust").value) +
             parseInt(document.getElementById("sauce").value) +
             parseInt(document.getElementById("cheese").value) +
-            parseInt(document.getElementById("Ingredient1").value) +
-            parseInt(document.getElementById("Ingredient2").value) +
-            parseInt(document.getElementById("Ingredient3").value) +
-            parseInt(document.getElementById("Ingredient4").value) +
-            parseInt(document.getElementById("Ingredient5").value);
+            parseInt(document.getElementById("ingredient1").value) +
+            parseInt(document.getElementById("ingredient2").value) +
+            parseInt(document.getElementById("ingredient3").value) +
+            parseInt(document.getElementById("ingredient4").value) +
+            parseInt(document.getElementById("ingredient5").value);
 
         document.getElementById("totalPrice").innerHTML = "Your total is " + totalPrice;
     }
