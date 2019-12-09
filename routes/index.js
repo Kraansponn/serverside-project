@@ -17,24 +17,24 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', {page:'login', menuId:'login'});
+  res.render('login', {page:'login', mymessage:'', menuId:'login'});
 });
 
 router.post('/login', function (req, res, next) {
-  var username = req.body.Username;
-  var password = req.body.password;
+  var username = req.body.username; // gets username passed in from form
+  var password = req.body.password; // gets password passed in from form
   let sql = `SELECT * 
            FROM customer 
            WHERE username = ? AND password = ?`;
 
-  db.get(sql, [username, password], (err, row) => {
+  db.get(sql, [username, password], (err, row) => { //sql query formed and executed
     if (err) {
       return console.error(err.message);
     }
     if (row != null) {
       res.render('index', {page: 'index', menuId: 'index'});
     } else {
-      res.render('register', {page: 'index', menuId: 'index'});
+      res.render('login', {page: 'login', mymessage:'Incorrect Username or Password', menuId: 'login'});
     }
   });
 });
