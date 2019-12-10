@@ -93,6 +93,15 @@ router.post('/basket', function (req, res, next) {
         basketList.push(["custom Pizza", total]);
     }
 
+    if (loggedInUsername === "") {
+        res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
+    }
+
+    var itemName = req.body.itemName
+    var itemPrice = req.body.itemPrice
+    if (itemName !== null && loggedInUsername !== "") {
+        basketList.push([itemName, itemPrice]);
+    }
     res.render('basket', {
         page: loggedInUsername + '\'s Basket',
         menuId: 'basket',

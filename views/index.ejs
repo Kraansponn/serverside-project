@@ -9,7 +9,7 @@
 <div class="container-fluid bg-3 text-center">
     <h3><%= page %></h3><br>
     <h3><%= mymessage %></h3><br>
-    </div>
+</div>
 
 <% var pepperoniPizza = ["https://media-cdn.tripadvisor.com/media/photo-s/0e/bc/93/c6/four-star-pizza.jpg", "large", "marinara", "Extra Cheese", "pepperoni", "€22.50"] %>
 <% var vegiterianPizza = ["https://media-cdn.tripadvisor.com/media/photo-s/12/d5/c4/e1/goats-cheese-caramelised.jpg", "small", "marinara", "no Cheese", "carrot", "tomato", "onion", "mushroom", "€45.50"] %>
@@ -28,16 +28,18 @@
         <td>
             <% pizzas.forEach(function(item) { %>
                 <li>
-                    <img src="<%= item[0] %>" width="100" height="100">
-                    <%= item[1] %>
-                    <%= item[2] %>
-                    <%= item[3] %>
-                    <%= item[4] %>
-                    <%= item[5] %>
-                    <%= item[6] %>
-                    <%= item[7] %>
-                    <%= item[8] %>
-                    <%= item[9] %>
+                    <a href="/basket" methods="post">
+                        <img src="<%= item[0] %>" width="100" height="100">
+                        <%= item[1] %>
+                        <%= item[2] %>
+                        <%= item[3] %>
+                        <%= item[4] %>
+                        <%= item[5] %>
+                        <%= item[6] %>
+                        <%= item[7] %>
+                        <%= item[8] %>
+                        <%= item[9] %>
+                    </a>
                 </li>
             <% }); %>
         </td>
@@ -60,6 +62,25 @@
     </tr>
 
 </table>
+
+<form style="padding-left: 45%;margin-bottom: 5%" action="/basket" method="post">
+    <div class="form-group">
+        <label>ChickenNuggets</label>
+        <span style="visibility: hidden">
+        <select id="itemName" name="itemName">
+            <option value="ChickenNugget"></option>
+        </select>
+            </span>
+        <label>Price €5</label>
+        <span style="visibility: hidden">
+        <select id="itemPrice" name="itemPrice">
+            <option value="5"></option>
+        </select>
+            </span>
+    </div>
+    <button style="margin-left: 2em" type="submit" class="btn btn-warning btn-lg">Add to Cart</button>
+
+</form>
 
 <% include partials/footer %>
 </body>
