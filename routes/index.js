@@ -101,4 +101,11 @@ router.get('/pizzabuilder', function (req, res, next) {
 
 });
 
+
+router.get('/order-complete', function (req, res, next) {
+    res.render('order-complete', {page: 'Confirm Order Details', menuId: 'Confirm Order Details'});
+});
+
+
+
 module.exports = router;
