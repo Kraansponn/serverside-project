@@ -3,7 +3,7 @@ var router = express.Router();
 var sqlite3 = require('sqlite3');
 
 var loggedInUsername = "";
-var basketList= [];
+var basketList = [];
 // connects to database
 
 let db = new sqlite3.Database('database/database.db', (err) => {
@@ -71,7 +71,7 @@ router.get('/basket', function (req, res, next) {
         res.render('basket', {
             page: loggedInUsername + '\'s Basket',
             menuId: 'basket',
-            pizza: []
+            listOfItemsInBasket: basketList
         });
     } else {
         res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
@@ -79,20 +79,24 @@ router.get('/basket', function (req, res, next) {
 });
 
 router.post('/basket', function (req, res, next) {
-    var crust = req.body.crust;
-    var sauce = req.body.sauce;
-    var cheese = req.body.cheese;
-    var ingredient1 = req.body.ingredient1;
-    var ingredient2 = req.body.ingredient2;
-    var ingredient3 = req.body.ingredient3;
-    var ingredient4 = req.body.ingredient4;
-    var ingredient5 = req.body.ingredient5;
+    if (req.body.crust !== undefined) {
+        var crust = req.body.crust;
+        var sauce = req.body.sauce;
+        var cheese = req.body.cheese;
+        var ingredient1 = req.body.ingredient1;
+        var ingredient2 = req.body.ingredient2;
+        var ingredient3 = req.body.ingredient3;
+        var ingredient4 = req.body.ingredient4;
+        var ingredient5 = req.body.ingredient5;
 
+        var total = parseInt(crust) + parseInt(sauce) + parseInt(cheese) + parseInt(ingredient1) + parseInt(ingredient2) + parseInt(ingredient3) + parseInt(ingredient4) + parseInt(ingredient5);
+        basketList.push(["custom Pizza", total]);
+    }
 
     res.render('basket', {
         page: loggedInUsername + '\'s Basket',
         menuId: 'basket',
-        pizza: [crust, sauce, cheese, ingredient1, ingredient2, ingredient3, ingredient4, ingredient5]
+        listOfItemsInBasket: basketList
     });
 });
 
@@ -126,9 +130,8 @@ router.post('/order-status', function (req, res, next) {
     var name = req.body.personname;
     var deliverytype = req.body.deliverytype;
     console.log(deliverytype);
-    res.render('order-status', {page: 'order-status',mymessage: 'Order Confirmed', menuId: 'order-status'});
+    res.render('order-status', {page: 'order-status', mymessage: 'Order Confirmed', menuId: 'order-status'});
 });
-
 
 
 module.exports = router;

@@ -19,19 +19,16 @@
             Price
         </th>
     </tr>
-    <tr>
-        <td>
-            Custom Pizza
-        </td>
-        <td>
-            <%
-            let total = 0;
-            pizza.forEach(function (price) {
-                total += parseInt(price);
-            }) %>
-            €<%= total %>
-        </td>
-    </tr>
+    <% listOfItemsInBasket.forEach(function (item) { %>
+        <tr>
+            <td>
+                <%= item[0] %>
+            </td>
+            <td>
+                €<%= item[1] %>
+            </td>
+        </tr>
+    <% }) %>
 </table>
 
 <a href="/order-complete">Buy Now</a>
