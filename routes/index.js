@@ -3,7 +3,7 @@ var router = express.Router();
 var sqlite3 = require('sqlite3');
 
 var loggedInUsername = "";
-
+var basketList= [];
 // connects to database
 
 let db = new sqlite3.Database('database/database.db', (err) => {
@@ -15,7 +15,7 @@ let db = new sqlite3.Database('database/database.db', (err) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', {page: 'Home', menuId: 'home'});
+    res.render('index', {page: 'Home', mymessage: '', menuId: 'home'});
 });
 
 router.get('/login', function (req, res, next) {
@@ -35,7 +35,7 @@ router.post('/login', function (req, res, next) {
         }
         if (row != null) {
             loggedInUsername = username;
-            res.render('index', {page: 'index', menuId: 'index'});
+            res.render('index', {page: 'index', mymessage: '', menuId: 'index'});
         } else {
             loggedInUsername = "";
             res.render('login', {page: 'login', mymessage: 'Incorrect Username or Password', menuId: 'login'});
@@ -68,7 +68,11 @@ router.post('/register', function (req, res, next) {
 
 router.get('/basket', function (req, res, next) {
     if (loggedInUsername !== "") {
-        res.render('basket', {page: loggedInUsername + '\'s Basket', menuId: 'basket'});
+        res.render('basket', {
+            page: loggedInUsername + '\'s Basket',
+            menuId: 'basket',
+            pizza: []
+        });
     } else {
         res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
     }
@@ -94,7 +98,11 @@ router.post('/basket', function (req, res, next) {
 
 router.get('/pizzabuilder', function (req, res, next) {
     if (loggedInUsername !== "") {
-        res.render('pizzabuilder', {page: loggedInUsername + '\'s Pizza Builder', menuId: 'pizzabuilder'});
+        res.render('pizzabuilder', {
+            page: loggedInUsername + '\'s Pizza Builder',
+            mymessage: 'Logged In',
+            menuId: 'pizzabuilder'
+        });
     } else {
         res.render('login', {page: 'login', mymessage: 'Please Login First', menuId: 'login'});
     }
@@ -104,6 +112,21 @@ router.get('/pizzabuilder', function (req, res, next) {
 
 router.get('/order-complete', function (req, res, next) {
     res.render('order-complete', {page: 'Confirm Order Details', menuId: 'Confirm Order Details'});
+});
+//
+// router.post('/order-complete', function (req, res, next) {
+//     var name = req.body.personname;
+//     var deliverytype = req.body.deliverytype;
+//     console.log(deliverytype);
+//     res.render('order-status', {page: '', mymessage: 'Order Confirmed', menuId: 'order-status'});
+// });
+
+
+router.post('/order-status', function (req, res, next) {
+    var name = req.body.personname;
+    var deliverytype = req.body.deliverytype;
+    console.log(deliverytype);
+    res.render('order-status', {page: 'order-status',mymessage: 'Order Confirmed', menuId: 'order-status'});
 });
 
 
